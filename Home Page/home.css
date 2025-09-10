@@ -185,3 +185,93 @@ body {
     background: linear-gradient(45deg, #667eea, #764ba2);
     border-radius: 2px;
     }
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-item:nth-child(1) {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/placeholder.svg?height=500&width=1000');
+        }
+
+        .carousel-item:nth-child(2) {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/placeholder.svg?height=500&width=1000');
+        }
+
+        .carousel-item:nth-child(3) {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/placeholder.svg?height=500&width=1000');
+        }
+
+        .carousel-content {
+            color: white;
+            padding: 2rem;
+            max-width: 500px;
+        }
+
+        .carousel-item:nth-child(1) .carousel-content {
+            text-align: left;
+            margin-left: 2rem;
+        }
+
+        .carousel-item:nth-child(2) .carousel-content {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .carousel-item:nth-child(3) .carousel-content {
+            text-align: right;
+            margin-right: 2rem;
+            margin-left: auto;
+        }
+
+        .carousel-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .carousel-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
