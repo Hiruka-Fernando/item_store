@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - ShopVibe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Same navbar as main site */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #6c5ce7;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-left a, .nav-right a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: #ffd700;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .cart-count {
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        /* Main content */
+        .main-content {
+            margin-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .auth-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+        }
+
+        .auth-tabs {
+            display: flex;
+            background-color: #f8f9fa;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .tab-button.active {
+            background-color: #6c5ce7;
+            color: white;
+        }
+
+        .tab-button:hover {
+            background-color: #5f3dc4;
+            color: white;
+        }
+
+        .form-container {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #5f3dc4;
+        }
+
+        .form-links {
+            text-align: center;
+        }
+
+        .form-links a {
+            color: #6c5ce7;
+            text-decoration: none;
+        }
+
+        .form-links a:hover {
+            color: #5f3dc4;
+            text-decoration: underline;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-button {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .google-btn {
+            color: #db4437;
+            border-color: #db4437;
+        }
+
+        .google-btn:hover {
+            background-color: #db4437;
+            color: white;
+        }
+
+        .facebook-btn {
+            color: #4267B2;
+            border-color: #4267B2;
+        }
+
+        .facebook-btn:hover {
+            background-color: #4267B2;
+            color: white;
+        }
+
+        /* Hide inactive forms */
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-text h2 {
+            color: #6c5ce7;
+            margin-bottom: 10px;
+        }
+
+        .welcome-text p {
+            color: #666;
+        }
+
+        /* Simple responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-left">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#store">Store</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                
+            </ul>
+            <div class="logo">ShopVibe</div>
+            <ul class="nav-right">
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="auth-container">
+            <!-- Tab Buttons -->
+            <div class="auth-tabs">
+                <button class="tab-button active" onclick="showForm('signin')">Sign In</button>
+                <button class="tab-button" onclick="showForm('signup')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <div class="form-container">
+                <div id="signin-form" class="form-content active">
+                    <div class="welcome-text">
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to your ShopVibe account</p>
+                    </div>
+
+                    <form onsubmit="handleSignIn(event)">
+                        <div class="form-group">
+                            <label for="signin-email">Email Address</label>
+                            <input type="email" id="signin-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signin-password">Password</label>
+                            <input type="password" id="signin-password" name="password" required>
+                        </div>
+                        <button type="submit" class="submit-button">Sign In</button>
+                    </form>
+
+                    <div class="form-links">
+                        <a href="#forgot">Forgot your password?</a>
+                    </div>
+
+                    <div class="divider">or sign in with</div>
+
+                    <div class="social-login">
+                        <button class="social-button google-btn" onclick="socialLogin('google')">Google</button>
+                        <button class="social-button facebook-btn" onclick="socialLogin('facebook')">Facebook</button>
+                    </div>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div id="signup-form" class="form-content">
+                    <div class="welcome-text">
+                        <h2>Join ShopVibe!</h2>
+                        <p>Create your account to start shopping</p>
+                    </div>
+
+                    <form onsubmit="handleSignUp(event)">
+                        <div class="form-group">
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email Address</label>
+                            <input type="email" id="signup-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm">Confirm Password</label>
+                            <input type="password" id="signup-confirm" name="confirm" required>
+                        </div>
+                        <button type="submit" class="submit-button">Create Account</button>
+                    </form>
+
+                    <div class="form-links">
+                        <p>By signing up, you agree to our <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></p>
+                    </div>
+
+                    <div class="divider">or sign up with</div>
+
+                    <div class="social-login">
+                        <button class="social-button google-btn" onclick="socialLogin('google')">Google</button>
+                        <button class="social-button facebook-btn" onclick="socialLogin('facebook')">Facebook</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Switch between sign in and sign up forms
+        function showForm(formType) {
+            // Hide all forms
+            document.getElementById('signin-form').classList.remove('active');
+            document.getElementById('signup-form').classList.remove('active');
+            
+            // Remove active class from all tabs
+            let tabs = document.querySelectorAll('.tab-button');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected form and activate tab
+            if (formType === 'signin') {
+                document.getElementById('signin-form').classList.add('active');
+                tabs[0].classList.add('active');
+            } else {
+                document.getElementById('signup-form').classList.add('active');
+                tabs[1].classList.add('active');
+            }
+        }
+
+        // Handle sign in form submission
+        function handleSignIn(event) {
+            event.preventDefault();
+            
+            let email = document.getElementById('signin-email').value;
+            let password = document.getElementById('signin-password').value;
+            
+            // Simple validation
+            if (email && password) {
+                alert('Sign in successful! Welcome back to ShopVibe.');
+                // In real application, this would send data to PHP backend
+                window.location.href = 'index.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Handle sign up form submission
+        function handleSignUp(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('signup-name').value;
+            let email = document.getElementById('signup-email').value;
+            let password = document.getElementById('signup-password').value;
+            let confirm = document.getElementById('signup-confirm').value;
+            
+            // Simple validation
+            if (name && email && password && confirm) {
+                if (password === confirm) {
+                    alert('Account created successfully! Welcome to ShopVibe.');
+                    // In real application, this would send data to PHP backend
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Passwords do not match.');
+                }
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Handle social login
+        function socialLogin(provider) {
+            alert('Redirecting to ' + provider + ' login...');
+            // In real application, this would redirect to social login
+        }
+
+        // Simple smooth scrolling for navbar links
+        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                let target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
