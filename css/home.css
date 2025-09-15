@@ -65,6 +65,31 @@ body {
 .nav-left a:hover::after, .nav-right a:hover::after {
     width: 100%;
     }
+    .navbar-nav .nav-link {
+      color:#fff;
+      font-weight:500;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color:#ffd700;
+      transform:translateY(-2px);
+    }
+    .navbar-nav .nav-link::after {
+      content:'';
+      position:absolute;
+      bottom:-5px;
+      left:0;
+      width:0;
+      height:2px;
+      background:#ffd700;
+      transition:width 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width:100%;
+    }
 
 .logo {
     font-size: 2rem;
