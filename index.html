@@ -1,0 +1,230 @@
+<html>
+    <head>
+        <title>ShopVibe</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link href="css/home.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <!-- This Navbar here-->
+        <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <ul class="nav-left">
+                <li><a href="#store">Store</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="logo">ShopVibe</div>
+            <ul class="nav-right">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#cart" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a></li>
+                <li><a href="../signin.html">Sign In</a></li>
+            </ul>
+        </div>
+        </nav>
+        <!-- This Hero Section here. Guys remember to rename the necessary items as needed. I just created a structure with fake names-->
+        <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to ShopVibe</h1>
+            <p>Discover Amazing Products at Unbeatable Prices</p>
+            <a href="#store" class="cta-button">Shop Now</a>
+        </div>
+        </section>
+        <!-- This Top Selling items section here. Update the links when you guys have finished other pages to likn them here. Update href tags and h3 and p tags as needed.-->
+         <section class="section" id="top-selling">
+        <div class="container">
+            <h2 class="section-title">Top Selling Items</h2>
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Premium Fashion</h3>
+                            <p>Discover our exclusive collection of premium fashion items that blend style with comfort.</p>
+                            <a href="#" class="cta-button">Explore Collection</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Latest Electronics</h3>
+                            <p>Stay ahead with cutting-edge technology and innovative gadgets for modern living.</p>
+                            <a href="#" class="cta-button">View Electronics</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-content">
+                            <h3>Home & Decor</h3>
+                            <p>Transform your space with our curated selection of beautiful home decor items.</p>
+                            <a href="#" class="cta-button">Shop Home</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                    <div class="carousel-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Arrivals section here. Update prices and item names and descs after you decide on items to add. 6 items-->
+     <section class="section" id="new-arrivals">
+        <div class="container">
+            <h2 class="section-title">New Arrivals</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Headphones</h3>
+                        <p class="product-description">Premium quality wireless headphones with noise cancellation</p>
+                        <div class="product-price">$199.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Smart Watch</h3>
+                        <p class="product-description">Advanced fitness tracking with heart rate monitoring</p>
+                        <div class="product-price">$299.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Designer Handbag</h3>
+                        <p class="product-description">Elegant leather handbag perfect for any occasion</p>
+                        <div class="product-price">$149.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Running Shoes</h3>
+                        <p class="product-description">Comfortable and durable shoes for your daily runs</p>
+                        <div class="product-price">$89.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Coffee Maker</h3>
+                        <p class="product-description">Brew the perfect cup of coffee every morning</p>
+                        <div class="product-price">$79.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/placeholder.svg?height=250&width=300')"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">LED Desk Lamp</h3>
+                        <p class="product-description">Adjustable LED lamp with multiple brightness levels</p>
+                        <div class="product-price">$49.99</div>
+                        <button class="product-button">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Discounts Section here. Update as necessary guys. Make the items editable by admin panel-->
+    <section class="section discount-section" id="discounts">
+        <div class="container">
+            <h2 class="section-title">Massive Discounts</h2>
+            <div class="discount-grid">
+                <div class="discount-card">
+                    <div class="discount-percentage">50% OFF</div>
+                    <h3>Electronics</h3>
+                    <p>Limited time offer on all electronic items</p>
+                </div>
+                <div class="discount-card">
+                    <div class="discount-percentage">40% OFF</div>
+                    <h3>Fashion</h3>
+                    <p>Seasonal sale on clothing and accessories</p>
+                </div>
+                <div class="discount-card">
+                    <div class="discount-percentage">60% OFF</div>
+                    <h3>Home & Garden</h3>
+                    <p>Transform your space for less</p>
+                </div>
+                <div class="discount-card">
+                    <div class="discount-percentage">35% OFF</div>
+                    <h3>Sports & Fitness</h3>
+                    <p>Get fit with discounted equipment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Partners Section here. Edit logos for the brand names we want-->
+    <section class="section partners-section" id="partners">
+        <div class="container">
+            <h2 class="section-title">Our Partners</h2>
+            <div class="partners-slider">
+                <div class="partner-logo">TechCorp</div>
+                <div class="partner-logo">FashionHub</div>
+                <div class="partner-logo">HomeStyle</div>
+                <div class="partner-logo">SportsPro</div>
+                <div class="partner-logo">ElectroMax</div>
+                <div class="partner-logo">StyleZone</div>
+                <div class="partner-logo">GadgetWorld</div>
+                <div class="partner-logo">TechCorp</div>
+                <div class="partner-logo">FashionHub</div>
+                <div class="partner-logo">HomeStyle</div>
+                <div class="partner-logo">SportsPro</div>
+                <div class="partner-logo">ElectroMax</div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer here. Quick links and Social media links added to this. edit links guys-->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#store">Store</a></li>
+                        <li><a href="#new-arrivals">New Arrivals</a></li>
+                        <li><a href="#discounts">Sale</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Account</h3>
+                    <ul>
+                        <li><a href="#signin">Sign In</a></li>
+                        <li><a href="#">Create Account</a></li>
+                        <li><a href="#cart">My Cart</a></li>
+                        <li><a href="#">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for the latest updates and exclusive offers.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopVibe. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/home.js"></script>
+</body>
+</html>
