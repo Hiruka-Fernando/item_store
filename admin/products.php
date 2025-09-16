@@ -2,7 +2,7 @@
 // --- Database Connection ---
 $servername = "localhost";
 $username   = "root";
-$password   = "";          // your DB password
+$password   = "#Whcf@2003";          // your DB password
 $dbname     = "admin";     // your DB name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -29,9 +29,9 @@ $result = $conn->query($sql);
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <ul class="nav-left">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="../index.html">Home</a></li>
       <li><a href="#">Store</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="../contact.html">Contact Us</a></li>
     </ul>
     <div class="logo">ShopVibe</div>
     <div class="search-bar">
@@ -39,12 +39,12 @@ $result = $conn->query($sql);
       <i class="fas fa-search icon"></i>
     </div>
     <ul class="nav-right">
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="cart.html" class="cart-icon">
+      <li><a href="../about.html">About Us</a></li>
+      <li><a href="../cart.html" class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-count">0</span>
       </a></li>
-      <li><a href="#signin">Sign In</a></li>
+      <li><a href="../signin.html">Log Out</a></li>
     </ul>
   </div>
 </nav>
