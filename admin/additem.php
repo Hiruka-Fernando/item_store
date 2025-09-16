@@ -26,21 +26,21 @@
                                 <input type="text" name="item_id" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label>Item_Name
-                                <input type="text" name="item_name" class="form-control" required></label>
+                                <label>Item_Name</label>
+                                <input type="text" name="item_name" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label>Price
-                                <input type="text" name="price" class="form-control" required></label>
+                                <label>Price</label>
+                                <input type="text" name="price" class="form-control" required>
                             </div>
                             <div class="mb-3">
-                                <label>Quantity
-                                <input type="text" name="quantity" class="form-control" required></label>
+                                <label>Quantity</label>
+                                <input type="text" name="quantity" class="form-control" required>
                             </div>
                              </div>
                             <div class="mb-3">
-                                <label>Description
-                                <input type="text" name="description" class="form-control" required></label>
+                                <label>Description</label>
+                                <input type="text" name="description" class="form-control" required>
                             </div>
                             <div class="mb-3">
                                 <label>Image</label>
