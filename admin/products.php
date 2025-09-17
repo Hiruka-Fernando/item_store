@@ -42,7 +42,13 @@ $result = $conn->query($sql);
       <li><a href="../about.html">About Us</a></li>
       <li><a href="../cart.php" class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count"><?php echo array_sum(array_column($_SESSION['cart'],'qty')); ?></span>
+        <span class="cart-count">
+          <?php 
+            echo isset($_SESSION['cart']) 
+                ? array_sum(array_column($_SESSION['cart'],'qty')) 
+                : 0; 
+          ?>
+        </span>
       </a></li>
       <li><a href="../signin.html">Log Out</a></li>
     </ul>

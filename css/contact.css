@@ -1,0 +1,87 @@
+.custom-navbar {
+      background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    .custom-navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(102,126,234,0.95);
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    .nav-left a, .nav-right a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-left a:hover, .nav-right a:hover,
+    .navbar-nav .nav-link.active {
+      color: #ffd700;
+      transform: translateY(-2px);
+    }
+    .nav-left a::after, .nav-right a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffd700;
+      transition: width 0.3s ease;
+    }
+    .nav-left a:hover::after, .nav-right a:hover::after {
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #ff4757;
+      color: #fff;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+
+    body { color:#333; }
+    .section-title { color:#667eea; font-weight:700; }
+    .contact-info i { color:#667eea; }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 32px;
+      text-decoration: none;
+      transition: transform 0.2s ease-in-out;
+      z-index: 999;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: #ffd700;
+    }
