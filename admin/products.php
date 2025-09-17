@@ -26,7 +26,6 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-<!-- ===== NAVBAR (unchanged) ===== -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <ul class="nav-left">
@@ -55,14 +54,12 @@ $result = $conn->query($sql);
     <?php
       if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-              // ✅ Always point to /admin/uploads/
-              $img = !empty($row['Image_URL']) ? 'uploads/' . $row['Image_URL'] : "images/default.jpg";
-
+              $img = !empty($row['Image_URL']) ? $row['Image_URL'] : "images/default.jpg";
               echo '<div class="card">';
               echo '  <img src="' . htmlspecialchars($img) . '" alt="' . htmlspecialchars($row['Item_Name']) . '">';
               echo '  <h3>' . htmlspecialchars($row['Item_Name']) . '</h3>';
               echo '  <p>' . htmlspecialchars($row['Description']) . '</p>';
-              echo '  <p><strong>Price: Rs.' . htmlspecialchars($row['Price']) . '</strong></p>';
+              echo '  <p><strong>Price: $' . htmlspecialchars($row['Price']) . '</strong></p>';
 
               // ---- Add to Cart form ----
               echo '  <form action="../cart.php" method="POST">';
@@ -86,12 +83,10 @@ $result = $conn->query($sql);
 </main>
 
 
-
-<!-- ===== FOOTER (unchanged) ===== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
-      <!-- … keep your existing footer sections … -->
+ 
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 ShopVibe. All rights reserved. | Privacy Policy | Terms of Service</p>
