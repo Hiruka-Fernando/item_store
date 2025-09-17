@@ -55,12 +55,8 @@ $result = $conn->query($sql);
     <?php
       if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-              //image path
-              if (!empty($row['Image_URL'])) {
-                  $img = 'uploads/' . $row['Image_URL'];
-              } else {
-                  $img = "images/default.jpg"; // fallback image
-              }
+              // ✅ Always point to /admin/uploads/
+              $img = !empty($row['Image_URL']) ? 'uploads/' . $row['Image_URL'] : "images/default.jpg";
 
               echo '<div class="card">';
               echo '  <img src="' . htmlspecialchars($img) . '" alt="' . htmlspecialchars($row['Item_Name']) . '">';
@@ -89,7 +85,6 @@ $result = $conn->query($sql);
   </div>
 </main>
 
-</main>
 
 
 <!-- ===== FOOTER (unchanged) ===== -->
