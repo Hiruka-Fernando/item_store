@@ -16,9 +16,9 @@
             <div class="logo">ShopVibe</div>
             <ul class="nav-right">
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="cart.html" class="cart-icon">
+                <li><a href="cart.php" class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">3</span>
+                    <span id="cart-count">0</span>
                 </a></li>
                 <li><a href="signin.html">Log Out</a></li>
             </ul>
@@ -225,5 +225,12 @@
         </div>
     </footer>
     <script src="js/home.js"></script>
+    <script>
+fetch('cart-count.php')
+  .then(res => res.json())
+  .then(data => {
+      document.getElementById('cart-count').textContent = data.count;
+  });
+</script>
 </body>
 </html>

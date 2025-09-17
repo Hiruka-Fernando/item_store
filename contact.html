@@ -122,9 +122,9 @@
       <ul class="navbar-nav gap-3 nav-right">
         <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
         <li class="nav-item">
-          <a class="nav-link position-relative cart-icon" href="cart.html">
+          <a class="nav-link position-relative cart-icon" href="cart.php">
             <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">3</span>
+            <span id="cart-count">0</span>
           </a>
         </li>
         <li class="nav-item"><a class="nav-link" href="signin.html">Log Out</a></li>
@@ -223,6 +223,13 @@
   window.addEventListener("scroll", () => {
     document.querySelector(".custom-navbar")
       .classList.toggle("scrolled", window.scrollY > 50);
+  });
+</script>
+<script>
+fetch('cart-count.php')
+  .then(res => res.json())
+  .then(data => {
+      document.getElementById('cart-count').textContent = data.count;
   });
 </script>
 </body>

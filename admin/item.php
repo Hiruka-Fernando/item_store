@@ -17,7 +17,7 @@
                     <div class="card-header">
                         <h4>Product Details
                             <a href="additem.php" class="btn btn-primary float-end">Add Product</a>
-                            <a href="index.html" class="btn btn-primary float-end me-2">Home</a>
+                            <a href="../index.html" class="btn btn-primary float-end me-2">Home</a>
                         </h4>
                     </div>
                     <div class="card-body">
