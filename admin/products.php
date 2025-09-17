@@ -55,12 +55,18 @@ $result = $conn->query($sql);
     <?php
       if ($result && $result->num_rows > 0) {
           while ($row = $result->fetch_assoc()) {
-              $img = !empty($row['Image_URL']) ? $row['Image_URL'] : "images/default.jpg";
+              //image path
+              if (!empty($row['Image_URL'])) {
+                  $img = 'uploads/' . $row['Image_URL'];
+              } else {
+                  $img = "images/default.jpg"; // fallback image
+              }
+
               echo '<div class="card">';
               echo '  <img src="' . htmlspecialchars($img) . '" alt="' . htmlspecialchars($row['Item_Name']) . '">';
               echo '  <h3>' . htmlspecialchars($row['Item_Name']) . '</h3>';
               echo '  <p>' . htmlspecialchars($row['Description']) . '</p>';
-              echo '  <p><strong>Price: $' . htmlspecialchars($row['Price']) . '</strong></p>';
+              echo '  <p><strong>Price: Rs.' . htmlspecialchars($row['Price']) . '</strong></p>';
 
               // ---- Add to Cart form ----
               echo '  <form action="../cart.php" method="POST">';
@@ -81,6 +87,8 @@ $result = $conn->query($sql);
       $conn->close();
     ?>
   </div>
+</main>
+
 </main>
 
 
