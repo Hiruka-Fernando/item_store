@@ -1,4 +1,5 @@
 <?php
+session_start();
 // --- Database Connection ---
 $servername = "localhost";
 $username   = "root";
@@ -40,9 +41,9 @@ $result = $conn->query($sql);
     </div>
     <ul class="nav-right">
       <li><a href="../about.html">About Us</a></li>
-      <li><a href="../cart.html" class="cart-icon">
+      <li><a href="../cart.php" class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">0</span>
+        <span class="cart-count"><?php echo array_sum(array_column($_SESSION['cart'],'qty')); ?></span>
       </a></li>
       <li><a href="../signin.html">Log Out</a></li>
     </ul>
@@ -53,14 +54,24 @@ $result = $conn->query($sql);
   <div class="product-grid">
     <?php
       if ($result && $result->num_rows > 0) {
-          while($row = $result->fetch_assoc()) {
+          while ($row = $result->fetch_assoc()) {
               $img = !empty($row['Image_URL']) ? $row['Image_URL'] : "images/default.jpg";
               echo '<div class="card">';
-              echo '  <img src="'.htmlspecialchars($img).'" alt="'.htmlspecialchars($row['Item_Name']).'">';
-              echo '  <h3>'.htmlspecialchars($row['Item_Name']).'</h3>';
-              echo '  <p>'.htmlspecialchars($row['Description']).'</p>';
-              echo '  <p><strong>Price: $'.htmlspecialchars($row['Price']).'</strong></p>';
-              echo '  <button class="add-cart">Add to Cart</button>';
+              echo '  <img src="' . htmlspecialchars($img) . '" alt="' . htmlspecialchars($row['Item_Name']) . '">';
+              echo '  <h3>' . htmlspecialchars($row['Item_Name']) . '</h3>';
+              echo '  <p>' . htmlspecialchars($row['Description']) . '</p>';
+              echo '  <p><strong>Price: $' . htmlspecialchars($row['Price']) . '</strong></p>';
+
+              // ---- Add to Cart form ----
+              echo '  <form action="../cart.php" method="POST">';
+              echo '    <input type="hidden" name="action" value="add">';
+              echo '    <input type="hidden" name="item_id" value="' . $row['Item_ID'] . '">';
+              echo '    <input type="hidden" name="item_name" value="' . htmlspecialchars($row['Item_Name']) . '">';
+              echo '    <input type="hidden" name="price" value="' . $row['Price'] . '">';
+              echo '    <input type="hidden" name="image" value="' . htmlspecialchars($img) . '">';
+              echo '    <button type="submit" class="add-cart">Add to Cart</button>';
+              echo '  </form>';
+
               echo '  <button class="buy-now">Buy Now</button>';
               echo '</div>';
           }
@@ -71,6 +82,7 @@ $result = $conn->query($sql);
     ?>
   </div>
 </main>
+
 
 <!-- ===== FOOTER (unchanged) ===== -->
 <footer class="footer">
